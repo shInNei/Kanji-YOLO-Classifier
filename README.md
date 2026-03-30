@@ -1,11 +1,11 @@
 npm create vite@latest my-japanese-app -- --template react
 
-
-DataLake.py - Đọc vào folder chứa mã nhị phân và đưa nó về dạng npz và dạng npy (npz là cho các file nhị phân nhiều ảnh, npy là cho ảnh đơn) - Incomplete
-DataLakeManager.py - Tạo db để nhận dạng SQL - Incomplete
-dataLoader.py (cũ)- Load và tạo train/test/val - code cũ rồi
-prepare_yolo.py (mới)- TIỀN XỬ LÝ và tạo train/test/val cho Yolo dưới dạng ảnh - code này chưa có class, train yolo bắt buộc phải đưa về dạng ảnh cấu trúc như trong file
-train.py - chạy train yolo - thông số đang hard code
+Cấu trúc file:
+- DataLake.py - Đọc vào folder chứa mã nhị phân và đưa nó về dạng npz và dạng npy (npz là cho các file nhị phân nhiều ảnh, npy là cho ảnh đơn) - Incomplete
+- DataLakeManager.py - Tạo db để nhận dạng SQL - Incomplete
+- dataLoader.py (cũ)- Load và tạo train/test/val - code cũ rồi
+- prepare_yolo.py (mới)- TIỀN XỬ LÝ và tạo train/test/val cho Yolo dưới dạng ảnh - code này chưa có class, train yolo bắt buộc phải đưa về dạng ảnh cấu trúc như trong file
+- train.py - chạy train yolo - thông số đang hard code
 
 Công việc cần thực hiện:
 - 1 file chung để chạy liên tục, khi mình bỏ dữ liệu mới tự động chạy từ đầu tới lúc train luôn rồi chạy lại be, dữ liệu mới có thể là ảnh (ảnh size bất kì)
