@@ -1,0 +1,164 @@
+/* Tổng quan - KHÓA SCROLL BẰNG 100vh */
+body {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  height: 100vh; /* Ép chiều cao bằng màn hình */
+  overflow: hidden; /* Chặn cuộn trang */
+  display: flex;
+  justify-content: center; 
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  height: 100%;
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header & Toolbar rút gọn lề */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px; /* Rút gọn margin */
+  border-bottom: 2px solid #333;
+  padding-bottom: 10px;
+}
+
+.app-header h1 { margin: 0; font-size: 2rem; }
+
+.btn-toolbar {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Tối ưu hóa layout: Chia thành 2 thẻ trắng song song */
+.workspace {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start; /* Giữ 2 thẻ dính lên trên cùng */
+  gap: 40px;
+  width: 100%;
+}
+
+/* Style chung cho 2 thẻ */
+.canvas-section, .result-section {
+  background-color: #ffffff; /* Thẻ màu trắng */
+  color: #333333;
+  border-radius: 12px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 450px; /* Chiều rộng bằng nhau */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Tạo chiều sâu */
+  box-sizing: border-box;
+}
+
+/* Tiêu đề trong mỗi thẻ */
+.canvas-section h3, .result-section h3 {
+  margin: 0 0 20px 0;
+  font-size: 1.4rem;
+  color: #000000;
+}
+
+/* Khung viền ô vẽ */
+.canvas-border {
+  border: 2px solid #cccccc;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #ffffff;
+  flex-shrink: 0; /* BẮT BUỘC: Ngăn khung vẽ bị bóp méo đè lên nút */
+}
+
+/* Vùng chứa 2 nút bấm */
+.canvas-controls {
+  margin-top: 25px; /* Tăng từ 15px lên 25px để đẩy nút tụt hẳn xuống dưới */
+  display: flex;
+  gap: 20px; /* Tăng khoảng cách ở giữa để tách 2 nút xa nhau ra */
+  width: 100%;
+}
+.btn-predict, .btn-clear {
+  flex: 1; padding: 12px; font-weight: bold; border: none; border-radius: 8px; cursor: pointer;
+}
+.btn-predict { background-color: #cc292b; color: white; }
+.btn-clear { background-color: #f0f0f0; color: #333; }
+
+.upload-section { margin-top: 15px; text-align: center; font-size: 0.9rem; }
+
+/* Cột Kết quả - ÉP CĂN GIỮA MỌI THỨ VÀ THU GỌN CHIỀU CAO */
+.result-section {
+  background-color: #f9f9f9;
+  color: #333;
+  border-radius: 12px;
+  padding: 20px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  text-align: center;
+}
+
+/* KHỐI KẾT QUẢ TO */
+.selected-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 180px;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  margin: 0 auto 20px auto; /* ÉP CĂN GIỮA CHÍNH XÁC */
+  background-color: #fff;
+}
+
+.main-kanji { font-size: 5.5rem; font-weight: bold; color: #cc292b; line-height: 1; }
+
+/* Nút Link Mazii */
+.mazii-link {
+  margin-top: 15px;
+  font-size: 0.85rem;
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: #e6f2ff;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+.mazii-link:hover { background-color: #cce5ff; text-decoration: underline; }
+
+/* Lưới Top-5 rút gọn chiều cao vì đã bỏ phần Nghĩa */
+.top5-grid { display: flex; gap: 8px; justify-content: center; width: 100%; }
+
+.grid-item {
+  width: 65px;
+  height: 80px; /* Thu lùn lại */
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Đẩy nội dung vào giữa */
+  cursor: pointer;
+  background-color: #fff;
+}
+.grid-item.active { border-color: #cc292b; background-color: #cc292b; color: white; }
+.kanji-char { font-size: 2.2rem; font-weight: bold; line-height: 1; margin-bottom: 5px; }
+.grid-item:not(.active) .kanji-char { color: #cc292b; }
+
+.conf-bar-bg { width: 80%; height: 4px; background-color: #eee; border-radius: 2px; }
+.conf-bar { height: 100%; background-color: #cc292b; border-radius: 2px; }
+.grid-item.active .conf-bar { background-color: #fff; }
+.conf-text { font-size: 0.7rem; font-weight: bold; margin-top: 4px; }
+.conf-warning { font-size: 0.8rem; color: #888; margin-top: 15px; margin-bottom: 0; }

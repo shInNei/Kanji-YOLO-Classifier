@@ -1,0 +1,18 @@
+# Ignore Dataset
+YOLO_Dataset/
+Data_Lake/
+ETL9G/
+data_warehouse.db
+
+# Ignore CheckPoints
+*.pt
+
+# Ignore Test Image
+*.png
+*.jpg
+
+# Ignore test file
+test.py
+inspect_data.py
+save_label.py
+label_encoder.pkl
