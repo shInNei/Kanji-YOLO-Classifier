@@ -9,7 +9,7 @@ train.py - chạy train yolo - thông số đang hard code
 
 Công việc cần thực hiện:
 - 1 file chung để chạy liên tục, khi mình bỏ dữ liệu mới tự động chạy từ đầu tới lúc train luôn rồi chạy lại be, dữ liệu mới có thể là ảnh (ảnh size bất kì)
-- cái npz và npy là định dạng cũ để chạy reset mà t bỏ xài yolo xài ảnh rồi, nên là có thể là prepare_yolo.py 1 phần tiền xử lý là bỏ qua bên DataLake, cho cái datalake nó tiền xử lý + ra ảnh luôn khỏi npy npz, 1 phần là đưa qua dataLoader là để .
+- Note: cái npy và npz là nó dùng để lưu trữ trong datalake (nhẹ hơn ảnh, gọn), còn sau đó cái dataloader nó sẽ lấy thông tin từ datalake nó tiền xử lý và chia train test val dưới dạng ảnh cho yolo, khả năng là train xong yolo nên xóa cái thư mục ảnh đi.
 - class cho dataloader chưa có merge với cái load của yolo, class model để ẩn cái yolo
 - SQL chưa có test
 - cái datalake chạy xong có thể có 1 số metric cho dữ liệu như histogram (optional)
