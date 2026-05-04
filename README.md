@@ -14,3 +14,6 @@ Công việc cần thực hiện:
 - SQL chưa có test
 - cái datalake chạy xong có thể có 1 số metric cho dữ liệu như histogram (optional)
 - BÁO CÁO
+
+đánh giá chất lượng tập dữ liệu -> có bị mất cân bằng
+train lại -> thêm katakana ETL 9G

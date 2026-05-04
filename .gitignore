@@ -16,3 +16,6 @@ test.py
 inspect_data.py
 save_label.py
 label_encoder.pkl
+
+#ignore env
+.env
