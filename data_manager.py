@@ -9,10 +9,14 @@ from PIL import Image
 from sqlalchemy import create_engine, text
 from dotenv import load_dotenv
 
-load_dotenv()  # Tự động tải biến môi trường từ file .env
-
 class DataWarehouseManager:
-    def __init__(self, db_url=os.getenv("DATABASE_URL")):
+    def __init__(self, db_url=None):
+        load_dotenv()
+        if db_url is None:
+            db_url = os.getenv("DB_URL")
+        if db_url is None:
+            raise ValueError("Không tìm thấy DB_URL trong file .env!")
+            
         self.engine = create_engine(db_url)
 
     def upsert_metadata(self, df):

@@ -1,8 +1,10 @@
 import time
+from dotenv import load_dotenv
 from datetime import datetime
 from data_manager import DataWarehouseManager, DataLakePipeline
 from yolo_engine import YoloDataLoader, YoloManager
 
+load_dotenv()
 INPUT_DIR = 'Landing_Zone'
 LAKE_DIR = 'Data_Lake'
 # DB_PATH = 'data_warehouse.db'
